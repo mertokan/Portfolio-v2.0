@@ -1,0 +1,56 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  username  String?  @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model About {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  smallTitle  String?
+  position    String?
+  description String?
+}
+
+model Cv {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  file      String?
+  language  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  title        String?
+  description  String?
+  image        String?
+  github       String?
+  live         String?
+  placement    Int?       @unique
+  iDev         Boolean? //todo: yapılacak
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  codeLangsIDs String[]   @db.ObjectId
+  codeLangs    CodeLang[] @relation(fields: [codeLangsIDs], references: [id])
+}
+
+model CodeLang {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  title      String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  projectIDs String[]  @db.ObjectId
+  projects   Project[] @relation(fields: [projectIDs], references: [id])
+}
