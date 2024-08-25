@@ -5,6 +5,7 @@ import Projects from './projects/page'
 import {useEffect, useState} from 'react'
 import {getAllAbout} from '@/actions/aboutAction'
 import {getAllCodeLang, getAllProject} from '@/actions/projectAction'
+import MobileBar from '@/components/shared/MobileBar'
 
 export default function Home() {
   const [allAbout, setAllAbout] = useState<any[]>([])
@@ -48,6 +49,7 @@ export default function Home() {
       <Banner about={allAbout} isLoading={isLoadingA} />
       <About about={allAbout} isLoading={isLoadingA} />
       <Projects project={allProject} isLoading={isLoadingP} codeLang={allCodeLang} />
+      <MobileBar />
     </>
   )
 }
