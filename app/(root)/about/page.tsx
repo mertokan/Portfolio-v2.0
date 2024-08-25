@@ -2,14 +2,17 @@
 import BigTitle from '@/components/shared/BigTitle'
 import CvButton from '@/components/shared/CvButton'
 import {Skeleton} from '@/components/ui/skeleton'
-interface allAbout {
-  about?: any
-  isLoading?: boolean
+interface AboutData {
+  description: string
+  position: string
 }
 
-const About = ({about, isLoading}: allAbout) => {
-
-  const description = about[0]?.description || ''
+interface AllAbout {
+  about?: AboutData[]
+  isLoading?: boolean
+}
+const About = ({about, isLoading}: AllAbout) => {
+  const description = about?.[0]?.description || ''
   const formatDescription = description.replace(/\\n/g, '\n')
 
   return (
@@ -20,7 +23,7 @@ const About = ({about, isLoading}: allAbout) => {
         <div className='flex flex-wrap justify-center gap-8'>
           <div className='max-w-[75%] text-neutral-3'>
             <h2 className='text-white text-4xl mb-3'>Hi There! I'm Mert Okan</h2>
-            <h4 className='text-state-yellow text-2xl font-light mb-3'>{about[0]?.position}</h4>
+            <h4 className='text-state-yellow text-2xl font-light mb-3'>{about?.[0]?.position}</h4>
             <div className=''>
               {isLoading ? (
                 <div className='space-y-2'>

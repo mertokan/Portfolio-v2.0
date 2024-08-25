@@ -4,12 +4,12 @@ import Symbol from './Symbol'
 import {FaGithub, FaLinkedin, FaTwitter} from 'react-icons/fa'
 import {Skeleton} from '../ui/skeleton'
 
-interface allAbout {
+interface AllAbout {
   about?: any
   isLoading?: boolean
 }
 
-export default function Banner({about, isLoading}: allAbout) {
+export default function Banner({about, isLoading}: AllAbout) {
   return (
     <div className='relative h-screen' id='home'>
       <div className='absolute -z-10'>
