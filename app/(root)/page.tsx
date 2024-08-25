@@ -8,7 +8,7 @@ import {getAllCodeLang, getAllProject} from '@/actions/projectAction'
 import MobileBar from '@/components/shared/MobileBar'
 
 export default function Home() {
-  const [allAbout, setAllAbout] = useState<any[]>([])
+  const [allAbout, setAllAbout] = useState<any>({})
   const [allProject, setAllProject] = useState<any[]>([])
   const [allCodeLang, setAllCodeLang] = useState<any[]>([])
   const [isLoadingA, setIsLoadingA] = useState(false)
@@ -18,7 +18,7 @@ export default function Home() {
     setIsLoadingA(true)
     try {
       const about = await getAllAbout()
-      setAllAbout(about)
+      setAllAbout(about[0])
     } catch (error) {
       console.error('Error fetching about data:', error)
     } finally {

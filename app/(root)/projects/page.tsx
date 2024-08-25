@@ -7,7 +7,8 @@ interface AllProject {
   codeLang?: any
 }
 const Projects = ({project, isLoading, codeLang}: AllProject) => {
-  const sortedProjects = project.sort((a: any, b: any) => a.placement - b.placement)
+  const sortedProjects = project ? project.sort((a: any, b: any) => a.placement - b.placement) : []
+
   return (
     <section className='py-24 bg-site-darkcolor2 h-max' id='projects'>
       <BigTitle title='Projects' />

@@ -2,28 +2,31 @@
 import BigTitle from '@/components/shared/BigTitle'
 import CvButton from '@/components/shared/CvButton'
 import {Skeleton} from '@/components/ui/skeleton'
+
 interface AboutData {
   description: string
   position: string
+  smallTitle: string
 }
 
 interface AllAbout {
-  about?: AboutData[]
+  about?: AboutData
   isLoading?: boolean
 }
+
 const About = ({about, isLoading}: AllAbout) => {
-  const description = about?.[0]?.description || ''
+  const description = about?.description || ''
   const formatDescription = description.replace(/\\n/g, '\n')
 
   return (
-    //<!-- Start About Seciton -->
+    //<!-- Start About Section -->
     <section id='about' className='h-max bg-site-darkcolor3 py-24'>
       <BigTitle title='about me' />
       <div className='container mx-auto mb-9'>
         <div className='flex flex-wrap justify-center gap-8'>
           <div className='max-w-[75%] text-neutral-3'>
             <h2 className='text-white text-4xl mb-3'>Hi There! I'm Mert Okan</h2>
-            <h4 className='text-state-yellow text-2xl font-light mb-3'>{about?.[0]?.position}</h4>
+            <h4 className='text-state-yellow text-2xl font-light mb-3'>{about?.position}</h4>
             <div className=''>
               {isLoading ? (
                 <div className='space-y-2'>
@@ -46,7 +49,7 @@ const About = ({about, isLoading}: AllAbout) => {
         <CvButton />
       </div>
     </section>
-    //<!-- End About Seciton -->
+    //<!-- End About Section -->
   )
 }
 
