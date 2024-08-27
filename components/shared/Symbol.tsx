@@ -1,9 +1,13 @@
 import React from 'react'
-import {FaReact} from 'react-icons/fa'
 import classNames from 'classnames'
 import Link from 'next/link'
-
-const Symbol = ({variant = 'primary', children = <FaReact />, to = '#', target = '_self'}) => {
+interface SymbolProps {
+  variant?: 'primary' | 'secondary'
+  children?: React.ReactNode
+  to: string 
+  target?: '_self' | '_blank' | '_parent' | '_top' 
+}
+const Symbol = ({variant = 'primary', children, to, target}: SymbolProps) => {
   return (
     <>
       <Link

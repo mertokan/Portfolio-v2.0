@@ -1,34 +1,9 @@
 'use client'
 import Link from 'next/link'
-import {AiOutlineHome, AiOutlineMail, AiOutlineProject} from 'react-icons/ai'
-import {HiOutlineInformationCircle} from 'react-icons/hi'
 import {useActiveSection} from '@/app/hooks/linkDetection'
 import CvButton from './CvButton'
 import Image from 'next/image'
-import pp from '@/images/pp.jpg'
-
-const NAVBAR_MENU = [
-  {
-    path: '#home',
-    title: 'Home',
-    icon: <AiOutlineHome size={24} />,
-  },
-  {
-    path: '#about',
-    title: 'About',
-    icon: <HiOutlineInformationCircle size={24} />,
-  },
-  {
-    path: '#projects',
-    title: 'Projects',
-    icon: <AiOutlineProject size={24} />,
-  },
-  {
-    path: '#contact',
-    title: 'Contact Me',
-    icon: <AiOutlineMail size={24} />,
-  },
-]
+import {NAVBAR_MENU} from '@/app/utils/navbarMenu'
 
 export default function Sidebar() {
   const activeSection = useActiveSection(NAVBAR_MENU.map((menu) => menu.path.substring(1)))

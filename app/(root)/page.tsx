@@ -1,11 +1,11 @@
 'use client'
-import Banner from '@/components/shared/Banner'
-import About from './about/page'
-import Projects from './projects/page'
 import {useEffect, useState} from 'react'
 import {getAllAbout} from '@/actions/aboutAction'
 import {getAllCodeLang, getAllProject} from '@/actions/projectAction'
 import MobileBar from '@/components/shared/MobileBar'
+import Banner from '@/components/section/Banner'
+import About from '@/components/section/About'
+import Projects from '@/components/section/Projects'
 
 export default function Home() {
   const [allAbout, setAllAbout] = useState<any>({})

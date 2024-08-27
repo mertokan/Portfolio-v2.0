@@ -1,8 +1,9 @@
 'use client'
-import Particle from './Particle'
-import Symbol from './Symbol'
+
 import {FaGithub, FaLinkedin, FaTwitter} from 'react-icons/fa'
 import {Skeleton} from '../ui/skeleton'
+import Particle from '../shared/Particle'
+import Symbol from '../shared/Symbol'
 
 interface AllAbout {
   about?: any
@@ -11,7 +12,7 @@ interface AllAbout {
 
 export default function Banner({about, isLoading}: AllAbout) {
   return (
-    <div className='relative h-screen' id='home'>
+    <section className='relative h-screen' id='home'>
       <div className='absolute -z-10'>
         <Particle />
       </div>
@@ -22,9 +23,7 @@ export default function Banner({about, isLoading}: AllAbout) {
         {isLoading ? (
           <Skeleton className='h-4 w-56 mb-6 ' />
         ) : (
-          <p className='text-lg font-light mb-6 text-neutral-3 text-center'>
-            {about[0]?.smallTitle}
-          </p>
+          <p className='text-lg font-light mb-6 text-neutral-3 text-center'>{about?.smallTitle}</p>
         )}
         <div className='flex justify-center items-center gap-3'>
           <Symbol to='https://www.linkedin.com/in/mert-okan/' target='_blank'>
@@ -38,6 +37,6 @@ export default function Banner({about, isLoading}: AllAbout) {
           </Symbol>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

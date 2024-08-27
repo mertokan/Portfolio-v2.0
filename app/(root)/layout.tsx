@@ -1,5 +1,5 @@
+import Footer from '@/components/section/Footer'
 import Sidebar from '@/components/shared/Sidebar'
-import Footer from './footer/page'
 
 export default function RootLayout({
   children,
