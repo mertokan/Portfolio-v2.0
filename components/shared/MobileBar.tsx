@@ -1,4 +1,4 @@
-import { useActiveSectionMobile } from '@/app/hooks/linkDetection'
+import {useActiveSectionMobile} from '@/app/hooks/linkDetection'
 import {NAVBAR_MENU} from '@/app/utils/navbarMenu'
 import Link from 'next/link'
 import React from 'react'
@@ -9,7 +9,7 @@ const MobileBar = () => {
   const activeSection = useActiveSectionMobile(NAVBAR_MENU.map((menu) => menu.path.substring(1)))
 
   return (
-    <div className='fixed md:hidden container items-center z-30 bottom-3 text-white flex justify-center'>
+    <div className='container fixed z-30 flex items-center justify-center text-white md:hidden bottom-3'>
       <div className='border-state-yellow border-[2px] shadow-inner shadow-state-yellow bg-site-darkcolor4/80 flex justify-evenly w-3/4 rounded-3xl select-none'>
         {NAVBAR_MENU.map((menu, key) => (
           <Link

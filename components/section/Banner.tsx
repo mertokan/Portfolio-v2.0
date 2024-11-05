@@ -16,16 +16,16 @@ export default function Banner({about, isLoading}: AllAbout) {
       <div className='absolute -z-10'>
         <Particle />
       </div>
-      <div className='h-screen absolute w-full flex flex-col items-center justify-center container'>
-        <h1 className='text-6xl font-semibold mb-5 text-center'>
+      <div className='container absolute flex flex-col items-center justify-center w-full h-screen'>
+        <h1 className='mb-5 text-6xl font-semibold text-center'>
           Hi, I am <span className='text-state-yellow'>Mert Okan</span>
         </h1>
         {isLoading ? (
-          <Skeleton className='h-4 w-56 mb-6 ' />
+          <Skeleton className='w-56 h-4 mb-6 ' />
         ) : (
-          <p className='text-lg font-light mb-6 text-neutral-3 text-center'>{about?.smallTitle}</p>
+          <p className='mb-6 text-lg font-light text-center text-neutral-3'>{about?.smallTitle}</p>
         )}
-        <div className='flex justify-center items-center gap-3'>
+        <div className='flex items-center justify-center gap-3'>
           <Symbol to='https://www.linkedin.com/in/mert-okan/' target='_blank'>
             <FaLinkedin />
           </Symbol>
